@@ -1,9 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import Login from './components/Login'
 
-function App() {
-  return <div className='App'>Comic Characters</div>;
+function App () {
+  return (
+    <div className='App'>
+      <h1>Comic Characters</h1>
+      <div>
+        <Login />
+      </div>
+    </div>
+  )
 }
 
-export default App;
+export default App
