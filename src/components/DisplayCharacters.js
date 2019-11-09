@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import apiParameters from '../utils/apiUtils';
+import CharactersList from './CharactersList';
 
 export default function DisplayCharacters() {
   const params = apiParameters();
@@ -15,15 +16,7 @@ export default function DisplayCharacters() {
 
   return (
     <div>
-      {characters.map(item => (
-        <ul key={item.id}>
-          <li>
-            {item.name}
-            {item.description}
-            {item.thumbnail.path}
-          </li>
-        </ul>
-      ))}
+      <CharactersList characters={characters} />
     </div>
   );
 }
