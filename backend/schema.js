@@ -1,13 +1,8 @@
-const { buildSchema } = require("graphql");
+const { GraphQLSchema } = require("graphql");
+const { query } = require("./resolvers/query");
 
-const schema = buildSchema(`
-type Query {
-   test: String
-}
-
-type Mutation {
-  placeholder: String
-}
-`);
+const schema = new GraphQLSchema({
+  query,
+});
 
 module.exports = schema;

@@ -20,6 +20,11 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          userName: "Jane Appleseed",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );

@@ -22,6 +22,20 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          userId: 1,
+          name: "Batman",
+          description: "Batman is a superhero",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: 2,
+          name: "Wonder Woman",
+          description: "Wonder Woman is a superhero",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
