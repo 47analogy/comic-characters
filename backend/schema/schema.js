@@ -1,5 +1,5 @@
 const { GraphQLSchema } = require("graphql");
-const { query } = require("./resolvers/query");
+const query = require("./resolvers/query");
 
 const schema = new GraphQLSchema({
   query,

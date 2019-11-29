@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     // associations can be defined here
     // CASCADE - delete any associations upon user removal
-    User.hasMany(models.Character, { onDelete: "CASCADE" });
+    User.hasMany(models.Character, {
+      foreignKey: "userId",
+      onDelete: "CASCADE",
+    });
   };
   return User;
 };

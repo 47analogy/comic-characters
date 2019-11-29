@@ -1,14 +1,43 @@
-const { GraphQLObjectType, GraphQLList } = require("graphql");
+const {
+  GraphQLObjectType,
+  GraphQLNonNull,
+  GraphQLID,
+  GraphQLList,
+} = require("graphql");
 const { resolver } = require("graphql-sequelize");
-const { userType } = require("../types");
-const { User } = require("../../db/models");
+const { userType, characterType } = require("../types");
+const { User, Character } = require("../../db/models");
 
-exports.query = new GraphQLObjectType({
+const query = new GraphQLObjectType({
   name: "RootQuery",
   fields: {
-    users: {
+    getAllUsers: {
       type: new GraphQLList(userType),
       resolve: resolver(User),
     },
+    getUserById: {
+      type: userType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLID),
+        },
+      },
+      resolve: resolver(User),
+    },
+    getAllCharacters: {
+      type: new GraphQLList(characterType),
+      resolve: resolver(Character),
+    },
+    getCharactersById: {
+      type: characterType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLID),
+        },
+      },
+      resolve: resolver(Character),
+    },
   },
 });
+
+module.exports = query;

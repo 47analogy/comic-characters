@@ -1,20 +1,39 @@
-const {
-  GraphQLObjectType,
-  GraphQLString,
-  GraphQLInt,
-  GraphQLNonNull,
-} = require("graphql");
+const { GraphQLObjectType, GraphQLString, GraphQLInt } = require("graphql");
 
 // typeDefs
-exports.userType = new GraphQLObjectType({
+const characterType = new GraphQLObjectType({
+  name: "Character",
+  description: "These are characters that belong to a user",
+  fields: {
+    id: {
+      type: GraphQLInt,
+    },
+    userId: {
+      type: GraphQLInt,
+    },
+    name: {
+      type: GraphQLString,
+    },
+    description: {
+      type: GraphQLString,
+    },
+  },
+});
+
+const userType = new GraphQLObjectType({
   name: "User",
   description: "These are the users",
   fields: {
     id: {
-      type: new GraphQLNonNull(GraphQLInt),
+      type: GraphQLInt,
     },
     userName: {
-      type: new GraphQLNonNull(GraphQLString),
+      type: GraphQLString,
     },
   },
 });
+
+module.exports = {
+  userType,
+  characterType,
+};
